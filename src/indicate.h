@@ -16,6 +16,7 @@ class Indicate
     void ledMode1();
     void ledMode2();
     void ledMode3();
+    void ledMode4();
   private:
     uint8_t ledMode;
     uint8_t indicateStep = 0;

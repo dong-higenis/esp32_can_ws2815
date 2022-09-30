@@ -2,7 +2,7 @@
 #include <ACAN_ESP32.h>
 #include <Adafruit_NeoPixel.h>
 
-uint8_t canEnPin = 19;
+uint8_t canEnPin = 14;
 
 #define CAN_ID_LED_MODE      (0x10)
 
@@ -54,6 +54,8 @@ void setup() {
     Serial.print("Configuration error 0x") ;
     Serial.println(ret, HEX) ;    
   }
+  ledMode = 0;
+  indicate.setLedMode(ledMode);
 }
 
 void loop() {

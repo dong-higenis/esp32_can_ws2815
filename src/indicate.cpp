@@ -49,15 +49,7 @@ void Indicate::ledMode1() {
     tm = millis();    
     switch(indicateStep) {
         case 0:
-            pixels.centerToOutside(100, 100, 100, 20, 1, 20, 300);
-            indicateStep++;
-            break;
-        case 1:
-            pixels.centerToOutside(100, 100, 100, 20, 1, 20, 300);
-            indicateStep++;
-            break;
-        case 2:
-            pixels.fadeIn(100, 100, 100, 20);
+            pixels.fadeInOut(100, 100, 100, 20);
             indicateStep++;
             break;
         default:
@@ -66,6 +58,20 @@ void Indicate::ledMode1() {
   }
 }
 void Indicate::ledMode2() {    
+  static uint32_t tm = 0;  
+  if(millis() - tm > 500) {
+    tm = millis();    
+    switch(indicateStep) {
+        case 0:
+            pixels.fadeIn(100, 100, 100, 20);
+            indicateStep++;
+            break;
+        default:
+            break;
+    } 
+  }
+}
+void Indicate::ledMode3() {    
   static uint32_t tm = 0;  
   if(millis() - tm > 500) {
     tm = millis();    
@@ -80,7 +86,7 @@ void Indicate::ledMode2() {
   }
 }
 
-void Indicate::ledMode3() {    
+void Indicate::ledMode4() {    
   static uint32_t tm = 0;  
   if(millis() - tm > 1000) {
     tm = millis();
@@ -104,6 +110,9 @@ bool Indicate::loop(void) {
       break;
     case 2:
       ledMode3();
+      break;
+    case 3:
+      ledMode4();
       break;
   }
   return true;

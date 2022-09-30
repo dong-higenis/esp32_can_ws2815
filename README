@@ -4,3 +4,14 @@
 
 https://blog.naver.com/chandong83/222689442734
 
+
+|ESP32|WS2815|
+|------|---|
+|D4|DI|
+|GND|GND|
+
+WS2815는 12V 입력이므로 12V전원을 따로 공급해야합니다.
+
+
+유튜브 데모 영상
+[![ws2815데모](https://img.youtube.com/vi/ZtGybzjayWk/0.jpg)](https://www.youtube.com/watch?v=ZtGybzjayWk)
